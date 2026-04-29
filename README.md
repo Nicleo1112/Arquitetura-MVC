@@ -1,4 +1,4 @@
-Sistema de Livraria - Arquitetura MVC e BDD
+# Sistema de Livraria - Arquitetura MVC
 Este projeto é um MVP (Minimum Viable Product) de um sistema de busca de livros, refatorado para seguir a arquitetura MVC (Model-View-Controller) e validado utilizando a metodologia BDD (Behavior-Driven Development).
 
 Tecnologias Utilizadas
