@@ -30,7 +30,7 @@ class LivroModel:
             {"Titulo": "Computer Organization", "Autor": "Patterson", "Ano": 2013},
             {"Titulo": "Digital Design", "Autor": "Morris Mano", "Ano": 2012},
             {"Titulo": "Data Science Handbook", "Autor": "Jake VanderPlas", "Ano": 2016},
-            {"Titulo": "Fluent Python", "Autor": "Luciano Ramalho", "Ano": 2015}
+            {"Titulo": "Fluent Python", "Autor": "Luciano Ramalho", "Ano": 2015},
         ]
 
     def filtrar(self, titulo="", autor="", ano_inicio=None, ano_fim=None):

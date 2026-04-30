@@ -1,29 +1,22 @@
-from main import filtrar_livros, livros
+from models.livro_model import LivroModel
 
+model = LivroModel()
 
 def teste_filtrar_por_nome():
-    criterio = {"Titulo": "Harry Potter", "Autor": "", "Ano": [], "livros": livros}
-    resultado = filtrar_livros(criterio)
+    resultado = model.filtrar(titulo="Harry Potter")
     assert len(resultado) == 2
-
 
 def teste_filtrar_por_autor():
-    criterio = {"Titulo": "", "Autor": "J.K Rowling", "Ano": [], "livros": livros}
-    resultado = filtrar_livros(criterio)
+    resultado = model.filtrar(autor="J.K Rowling")
     assert len(resultado) == 2
-
 
 def teste_filtrar_por_ano():
-    criterio = {"Titulo": "", "Autor": "", "Ano": [1970, 2000], "livros": livros}
-    resultado = filtrar_livros(criterio)
+    resultado = model.filtrar(ano_inicio=1970, ano_fim=2000)
     assert len(resultado) == 2
-
 
 def teste_filtrar_combinado():
-    criterio = {"Titulo": "Harry Potter", "Autor": "J.K Rowling", "Ano": [1970, 2000], "livros": livros}
-    resultado = filtrar_livros(criterio)
+    resultado = model.filtrar(titulo="Harry Potter", autor="J.K Rowling", ano_inicio=1970, ano_fim=2000)
     assert len(resultado) == 2
-
 
 if __name__ == "__main__":
     teste_filtrar_por_nome()

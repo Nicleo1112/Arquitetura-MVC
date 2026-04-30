@@ -1,30 +1,26 @@
 from behave import given, when, then
-from main import filtrar_livros, livros
+from models.livro_model import LivroModel
+
+model = LivroModel()
 
 @given('que eu tenho uma lista de livros padrão')
 def step_impl(context):
-    context.lista_livros = livros
-    context.criterio = {
-        "Titulo": "",
-        "Autor": "",
-        "Ano": [],
-        "livros": context.lista_livros
-    }
+    context.titulo = ""
+    context.autor = ""
+    context.ano = []
 
 @when('eu filtro pelo título "{titulo}"')
 def step_impl(context, titulo):
-    context.criterio["Titulo"] = titulo
-    context.resultado = filtrar_livros(context.criterio)
+    context.titulo = titulo
+    context.resultado = model.filtrar(titulo=titulo)
 
 @when('eu filtro pelo autor "{autor}"')
 def step_impl(context, autor):
-    context.criterio["Autor"] = autor
-    context.resultado = filtrar_livros(context.criterio)
+    context.resultado = model.filtrar(autor=autor)
 
 @when('eu filtro pelo intervalo de anos entre {inicio:d} e {fim:d}')
 def step_impl(context, inicio, fim):
-    context.criterio["Ano"] = [inicio, fim]
-    context.resultado = filtrar_livros(context.criterio)
+    context.resultado = model.filtrar(ano_inicio=inicio, ano_fim=fim)
 
 @then('o sistema deve retornar {quantidade:d} livros')
 def step_impl(context, quantidade):
